@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Cab Booking</title>
+</head>
+<script>
+function preLoad()
+{
+a1 = new Image; a1.src = 'car3.jpg';
+a2 = new Image; a2.src = 'car4.jpg';
+a3 = new Image; a3.src = 'car5.jpg';
+a4 = new Image; a4.src = 'car6.jpg';
+}
+function im(image)
+{
+document.getElementById(image[0]).src = eval(image + ".src")
+}
+function validate()
+{
+var name=document.getElementById('name').value;
+var phoneno=document.getElementById('phone_no').value;
+var namereg= /^[a-zA-Z ]{2,30}$/;
+var phonereg=/^[7-9][0-9]{9}$/;
+var name_res=namereg.test(name);
+var phone_res=phonereg.test(phoneno);
+if(name_res==false)
+{
+alert("please enter valid name")
+return false;
+}
+if(phone_res==false)
+{
+alert("please enter valid phone number")
+return false;
+}
+alert("data submitted successfully")
+return true;
+}
+</script>
+<body bgcolor="cyan" onLoad="preLoad()">
+<center>
+<form autocomplete="off" action="Form2.html" method="POST" target="_blank" onsubmit="return validate()">
+<b><h1><p style="color:Blue">Car Booking</p></h1></b>
+Name:<input type="text" size="20" id="name"><br><br>
+Phone Number:<input type="text" size="20" placeholder="10 Digits" id="phone_no"><br><br>
+Pick Up Location:<input type="text" size="20"><br><br>
+Drop Location:<input type="text" size="20"><br><br>
+Pick Up Date:<input type="text" size="20" placeholder="DD/MM/YY"><br><br>
+Pick Up time:<input type="text" size="20" placeholder="0.00.00AM/PM">
+<br><br>
+Choose the car:
+<br><br>
+<input type="radio" name="1" onClick="im('a1');" checked>cab1
+<input type="radio" name="1" onClick="im('a2');">cab2
+<input type="radio" name="1" onClick="im('a3');">cab3
+<input type="radio" name="1" onClick="im('a4');">cab4
+<br><br>
+<img id="a" src="car3.jpg" width="400" height="300" alt="">
+<br><br>
+Select payment mode<br><br>
+<select name="payment">
+<option value="Cheque">Cheque</option>
+<option value="Cash">Cash</option>
+<option value="Card">Card</option>
+</select>
+<br></br><br>
+<br>
+<br>
+<input type="submit" value="Book Now">
+<input type="reset" value="cancel">
+<br>
+</form>
+</body>
+</html>
