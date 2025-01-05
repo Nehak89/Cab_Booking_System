@@ -1,0 +1,31 @@
+<html>
+<title>form2</title>
+<script>
+Mybanner=new Array('cab.jpg','cab2.jpg','cab3.jpg')
+banner_count=0;
+function dbanners()
+{
+if(document.images)
+{
+banner_count++;
+/*if(banner_count==Mybanner.length)
+{
+banner_count++;
+}*/
+if(banner_count==Mybanner.length)
+{
+banner_count=0;
+}
+document.bannerchange.src=Mybanner[banner_count];
+setTimeout("dbanners()",3000);
+}
+}
+</script>
+<body onload ="dbanners()">
+<center>
+<h1>Cab Booking</h1>
+<img src="cab.jpg" width="580" height="420" name="bannerchange"/>
+</center>
+<center><b><a href="f3.html">Click here to view next</a></b></center>
+</body>
+</html>
